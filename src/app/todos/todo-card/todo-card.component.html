@@ -1,0 +1,18 @@
+<li class="list-group-item list-group-item-info ui-state-default">
+
+  <div class="checkbox" *ngIf=!doneFlag>
+    <label>
+      <input type="checkbox" [checked]=todo.isCompleted (change)="onchange()">&nbsp;
+      <span 
+      [style.color]="todo.isCompleted? 'grey':'blue'"
+      [style.text-decoration]="todo.isCompleted? 'line-through':'none '">{{todo.task}}</span>
+    </label>
+    &nbsp;&nbsp; 
+      <i class="fa fa-edit" aria-hidden="true" [hidden]=todo.isCompleted (click)="onTodoClick()"></i>
+  </div>
+
+  <div *ngIf=doneFlag>
+      <i class="fa fa-trash" (click)="deleteTodo()"></i>&nbsp;&nbsp; <span>{{todo.task}}</span>
+  </div>  
+
+</li>
