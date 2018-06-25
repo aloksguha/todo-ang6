@@ -1,0 +1,9 @@
+<app-todo-edit></app-todo-edit>
+<hr>
+
+<legend>To Dos</legend>
+<div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+<app-todo-card *ngFor="let todo of todos" [todo]=todo></app-todo-card>
+</div></div></div>

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xl-12">
+    <form name="form" (ngSubmit)="onAddTask(f)" #f="ngForm" novalidate>
+      <legend>{{headinglable}}</legend>
+      <div class="row">
+        <div class="col-xl-9">
+          <input type="text" class="form-control" name="task" ngModel required />
+        </div>
+        <div class="col-xl-3">
+          <button class="btn btn-primary" type="submit" class="btn btn-success" [disabled]="!f.valid">CreateTodo</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
