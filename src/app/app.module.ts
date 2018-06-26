@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { TodoCardComponent } from './todos/todo-card/todo-card.component';
 import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 import { DoneTodoComponent } from './todos/done-todo/done-todo.component';
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './todos/store/todos.reducers';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { DoneTodoComponent } from './todos/done-todo/done-todo.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({todolist: todoReducer})
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

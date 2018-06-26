@@ -3,7 +3,9 @@
 
 <legend>To Dos</legend>
 <div class="container">
-    <div class="row">
-      <div class="col-xl-12">
-<app-todo-card *ngFor="let todo of todos" [todo]=todo></app-todo-card>
-</div></div></div>
+  <div class="row">
+    <div class="col-xl-12">
+      <app-todo-card *ngFor="let todo of (todosState | async).todos" [todo]=todo></app-todo-card>
+    </div>
+  </div>
+</div>

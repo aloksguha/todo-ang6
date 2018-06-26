@@ -7,11 +7,12 @@ export class TodoService{
     todoSubject : Subject<Todo[]> = new Subject<Todo[]>();
     editTodoSubject : Subject<Todo> = new Subject<Todo>();
 
-    todos : Todo[] = [
-        new Todo(this.gererateId(),'Meet with dentist', false),
-        new Todo(this.gererateId(), 'Repair Window', false),
-        new Todo(this.gererateId(), 'Wash your car', true)
-    ]
+    todos : Todo[] ;
+    // = [
+    //     new Todo(this.gererateId(),'Meet with dentist', false),
+    //     new Todo(this.gererateId(), 'Repair Window', false),
+    //     new Todo(this.gererateId(), 'Wash your car', true)
+    // ]
 
     getTodos(){
         return this.todos.slice();

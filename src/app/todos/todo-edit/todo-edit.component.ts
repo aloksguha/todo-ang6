@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TodoService } from '../../shared/todos.service';
 import { Todo } from '../todos.model';
+import { Store } from '@ngrx/store';
+import * as todoActions from '../store/todos.actions';
 
 @Component({
   selector: 'app-todo-edit',
@@ -15,7 +17,8 @@ export class TodoEditComponent implements OnInit {
   editMode = false;
   model : any = {};
   headinglable = "New Todo"
-  constructor(private service: TodoService) { }
+  constructor(private service: TodoService, 
+    private store: Store<{todolist : {todos: Todo[]}}>) { }
 
   ngOnInit() {
     this.slForm.reset();
@@ -42,6 +45,7 @@ export class TodoEditComponent implements OnInit {
       this.headinglable = "New Todo"
     }
     else if(form.valid){
+      this.store.dispatch(new todoActions.AddTodo())
       this.service.addTodo(form.value.task);
     }
     form.reset();
